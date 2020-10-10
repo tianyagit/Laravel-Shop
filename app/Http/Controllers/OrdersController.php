@@ -10,7 +10,7 @@ use App\Models\Order;
 use Carbon\Carbon;
 
 use App\Exceptions\InvalidRequestException;
-use PharIo\Manifest\InvalidEmailException;
+use App\Jobs\CloseOrder;
 
 class OrdersController extends Controller
 {
@@ -69,6 +69,7 @@ class OrdersController extends Controller
             return $order;
         });
 
+        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
         return $order;
     }
 }

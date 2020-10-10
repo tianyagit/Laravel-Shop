@@ -10,9 +10,9 @@ class OrderItem extends Model
     protected $dates = ['reviewed_at'];
     public $timestamps = false;
 
-    public function user()
+    public function product()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function productSku()

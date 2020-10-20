@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Product;
+use App\Models\UserAddress;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(UserAddressesSeeder::class);
+        $this->call(ProductsSeeder::class);
+        $this->call(CouponCodesSeeder::class);
+        $this->call(OrdersSeeder::class);
     }
 }
